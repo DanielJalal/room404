@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FentanylCore</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="..//favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="..//favicon/favicon-32x32.png">
+<link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="..//favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="..//favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="..//favicon/android-chrome-512x512.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #969F7C;
+            color: white;
+            text-align: center;
+        }
+
+        header, nav, main, footer {
+            border: 3px solid black;
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        header img:first-child {
+            max-width: 100%;
+            width: 300px; 
+            height: auto;
+        }
+
+        header img:nth-child(2) {
+            width: 80px; 
+            height: auto;
+        }
+
+        nav {
+            background: #969F7C;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: #444;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            background: #666;
+        }
+
+        main {
+            padding: 20px;
+            min-height: 60vh;
+        }
+
+        footer {
+            background: #222;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        @font-face {
+            font-family: 'mario';
+            src: url('../fuentes/SuperMario256.ttf') format('truetype');
+        }
+
+        * {
+            font-family: 'mario', sans-serif; 
+        }
+
+        .destacado img, .gallery img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin: 10px;
+            border: 3px solid black;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header img:first-child {
+                width: 250px; 
+            }
+
+            header img:nth-child(2) {
+                width: 70px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            nav a {
+                width: 80%;
+                text-align: center;
+                padding: 10px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery img {
+                max-width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img:first-child {
+                width: 200px; 
+            }
+
+            header img:nth-child(2) {
+                width: 60px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .boton {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../imagenes/cooltext475778322430772.gif" alt="Título GIF">
+        <img src="../imagenes/YOP.gif" alt="Otro GIF">
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="muzika.html">Music</a>
+        <a href="#" onclick="playSoundAndRedirect()">Road to madness</a>
+        <a href="https://sketchfab.com/fentanylbulgaria">Sketchfab</a>
+    </nav>
+
+    <main>
+        <section class="destacado">
+            <h3>Last Creation</h3>
+            <img src="../imagenes/dark.png" alt="Render más reciente">
+        </section>
+
+        <section class="caos-visual">
+            <h3>Naturecore</h3>
+            <div class="gallery">
+                <img src="../imagenes/12312312312.png" alt="5">
+                <img src="../imagenes/133123123132.png" alt="6">
+            </div>
+        </section>
+        
+        <section class="caos-visual">
+            <h3>Katya</h3>
+            <div class="gallery">
+                <img src="../imagenes/1asdias.png" alt="1">
+                <img src="../imagenes/2asdasd.png" alt="2">
+                <img src="../imagenes/3adsadas.png" alt="3">
+                <img src="../imagenes/Sequence 01.gif" alt="4">
+            </div>
+        </section>
+    
+        <section class="caos-visual">
+            <h3>Slaviccore</h3>
+            <div class="gallery">
+                <img src="../imagenes/ghfhfghfgh.png" alt="5">
+                <img src="../imagenes/fghfg.png" alt="6">
+            </div>
+        </section>
+
+        <section class="caos-visual">
+            <h3>Brutalism (Abandoned)</h3>
+            <div class="gallery">
+                <img src="../imagenes/1.png" alt="1">
+                <img src="../imagenes/2.png" alt="2">
+                <img src="../imagenes/3.png" alt="3">
+            </div>
+        </section>
+
+        <section class="contacto">
+            <h3>¿Quieres colaborar? 📢</h3>
+            <a href="https://www.instagram.com/fentbulgaria.obj/" class="boton">Contacto</a>
+        </section>
+    </main>    
+
+    <footer>
+        <p>&copy; 2004 - FentanylBulgaria</p>
+    </footer>
+
+    <audio id="madnessSound" src="../audio/scream.mp3"></audio>
+
+<script>
+    function playSoundAndRedirect() {
+        var audio = document.getElementById("madnessSound");
+        audio.play();
+        setTimeout(function() {
+            window.location.href = "madness.html";
+        }, 1500); 
+    }
+</script>
+</body>
+</html>

@@ -12,7 +12,7 @@
         }
 
         body {
-            background: url('/random/fondopantalla.png') no-repeat center center fixed;
+            background: url('imagenes/untitled.png') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
@@ -35,8 +35,19 @@
     </style>
 </head>
 <body>
-    <a href="/apartados/home.html">
-        <img src="/random/LITRONA.png" alt="Imagen Central"> 
+    <a href="#" onclick="playSoundAndRedirect()">
+        <img src="imagenes/7ad4f38f0f6fa256a54ff9a92f28f63b.gif" alt="Imagen Central"> 
     </a>
 </body>
+<audio id="Sound" src="audio/start.mp3"></audio>
+
+<script>
+    function playSoundAndRedirect() {
+        var audio = document.getElementById("Sound");
+        audio.play();
+        setTimeout(function() {
+            window.location.href = "apartados/home.html";
+        }, 1500); 
+    }
+</script>
 </html>
