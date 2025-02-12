@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FentanylCore</title>
     <link rel="icon" type="image/png" sizes="16x16" href="..//favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="..//favicon/favicon-32x32.png">
-<link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="..//favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="..//favicon/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="..//favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="..//favicon/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="..//favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="..//favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="..//favicon/android-chrome-512x512.png">
 
     <style>
         * {
@@ -39,15 +39,22 @@
             text-align: center;
         }
 
-        header img:first-child {
-            max-width: 100%;
-            width: 300px; 
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #222;
+        }
+
+        .header-title img {
+            max-width: 80px;
             height: auto;
         }
 
-        header img:nth-child(2) {
-            width: 80px; 
-            height: auto;
+        header h1 {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
         nav {
@@ -118,89 +125,48 @@
             font-weight: bold;
         }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            header img:first-child {
-                width: 250px; 
-            }
-
-            header img:nth-child(2) {
-                width: 70px;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 5px;
-            }
-
-            nav a {
-                width: 80%;
-                text-align: center;
-                padding: 10px;
-            }
-
-            main {
-                padding: 15px;
-            }
-
-            .gallery {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .gallery img {
-                max-width: 80%;
-            }
+        .sobre-mi {
+            background-color: #444;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 480px) {
-            header img:first-child {
-                width: 200px; 
-            }
-
-            header img:nth-child(2) {
-                width: 60px;
-            }
-
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-                padding: 8px;
-            }
-
-            .boton {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
+        .sobre-mi h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
         }
+
+        .sobre-mi p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <img src="../imagenes/cooltext475778322430772.gif" alt="Título GIF">
-        <img src="../imagenes/YOP.gif" alt="Otro GIF">
+        <div class="header-title">
+            <img src="../imagenes/YOP.gif" alt="GIF Izquierda">
+            <h1>Room 404</h1>
+            <img src="../imagenes/a857670557c3cdf3e7a05f7418d2310f.gif" alt="GIF Derecha">
+        </div>
     </header>
 
     <nav>
-        <a href="home.html">Home</a>
-        <a href="muzika.html">Music</a>
-        <a href="#" onclick="playSoundAndRedirect()">Road to madness</a>
+        <a href="home.html">Casita</a>
+        <a href="#" onclick="SoundAndRedirect()">Spotify</a>
+        <a href="#" onclick="playSoundAndRedirect()">Animaciones</a>
+        <a href="secret.html">Secretin</a>
         <a href="https://sketchfab.com/fentanylbulgaria">Sketchfab</a>
     </nav>
 
     <main>
-        <section class="destacado">
-            <h3>Last Creation</h3>
-            <img src="../imagenes/dark.png" alt="Render más reciente">
+        <section class="sobre-mi">
+            <h2>Sobre mi vida</h2>
+            <p>Me llamo Dani y empece usando blender en un tren Bulgaria-Turquia tenia mucho tiempo libre y un portatil asi que aqui estoy compartiendo un poco lo que hago, no se bien lo que hago porque hago un poco de todo con lo poco que se de este programa, tengo muchos videos raros creados en episodios depresivos de mi transtorno bipolar cosa que me afecta mucho a mi vida y ha sido un poco lo que me ha hecho sobrevivir en estos meses que son los peores de mi vida. Espero que a alguien de este mundo le interese lo que hago, porque es lo unico que tengo para ofrecer.</p>
+            <img src="../imagenes/d8d0630eb503948fc31e79e5b87d0da7.gif" alt="Render más reciente">
         </section>
 
         <section class="caos-visual">
@@ -223,7 +189,7 @@
         </section>
     
         <section class="caos-visual">
-            <h3>Slaviccore</h3>
+            <h3>Slavic Core</h3>
             <div class="gallery">
                 <img src="../imagenes/ghfhfghfgh.png" alt="5">
                 <img src="../imagenes/fghfg.png" alt="6">
@@ -250,13 +216,22 @@
     </footer>
 
     <audio id="madnessSound" src="../audio/scream.mp3"></audio>
+    <audio id="mazikSound" src="../audio/scream.mp3"></audio>
+
 
 <script>
-    function playSoundAndRedirect() {
+  function playSoundAndRedirect() {
         var audio = document.getElementById("madnessSound");
         audio.play();
         setTimeout(function() {
             window.location.href = "madness.html";
+        }, 1500); 
+    }
+    function SoundAndRedirect() {
+        var audio = document.getElementById("mazikSound");
+        audio.play();
+        setTimeout(function() {
+            window.location.href = "https://open.spotify.com/user/312i6bqpxgzjpjjlheetnvyfmbbe";
         }, 1500); 
     }
 </script>
