@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="..//favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="..//favicon/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="..//favicon/android-chrome-512x512.png">
-
     <style>
         * {
             margin: 0;
@@ -25,7 +25,10 @@
             text-align: center;
         }
 
-        header, nav, main, footer {
+        header,
+        nav,
+        main,
+        footer {
             border: 3px solid black;
         }
 
@@ -36,14 +39,12 @@
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
-            text-align: center;
         }
 
         .header-title {
             display: flex;
             align-items: center;
             gap: 20px;
-            color: #222;
         }
 
         .header-title img {
@@ -53,7 +54,7 @@
 
         header h1 {
             font-size: 2rem;
-            color: white;
+            color: rgb(255, 0, 0);
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
@@ -97,10 +98,10 @@
         }
 
         * {
-            font-family: 'mario', sans-serif; 
+            font-family: 'mario', sans-serif;
         }
 
-        .destacado img, .gallery img {
+        .gallery img {
             width: 100%;
             max-width: 250px;
             height: auto;
@@ -123,12 +124,22 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: darkred;
         }
 
         .sobre-mi {
             background-color: #444;
             padding: 20px;
             margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
         .sobre-mi h2 {
@@ -140,10 +151,18 @@
         .sobre-mi p {
             font-size: 1rem;
             color: #ccc;
+            max-width: 400px;
         }
 
+        .sobre-mi img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border: 3px solid black;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -164,9 +183,8 @@
 
     <main>
         <section class="sobre-mi">
-            <h2>Sobre mi vida</h2>
-            <p>Me llamo Dani y empece usando blender en un tren Bulgaria-Turquia tenia mucho tiempo libre y un portatil asi que aqui estoy compartiendo un poco lo que hago, no se bien lo que hago porque hago un poco de todo con lo poco que se de este programa, tengo muchos videos raros creados en episodios depresivos de mi transtorno bipolar cosa que me afecta mucho a mi vida y ha sido un poco lo que me ha hecho sobrevivir en estos meses que son los peores de mi vida. Espero que a alguien de este mundo le interese lo que hago, porque es lo unico que tengo para ofrecer.</p>
-            <img src="../imagenes/d8d0630eb503948fc31e79e5b87d0da7.gif" alt="Render más reciente">
+            <p>Me llamo Dani y empecé usando Blender en un tren Bulgaria-Turquía. Tenía mucho tiempo libre y un portátil, así que aquí estoy compartiendo un poco lo que hago. No sé bien lo que hago porque hago un poco de todo con lo poco que sé de este programa. Tengo muchos videos raros creados en episodios depresivos de mi trastorno bipolar, cosa que me afecta mucho a mi vida y ha sido un poco lo que me ha hecho sobrevivir en estos meses que son los peores de mi vida. Espero que a alguien de este mundo le interese lo que hago, porque es lo único que tengo para ofrecer.</p>
+            <img src="../imagenes/gamba.gif" alt="Render más reciente">
         </section>
 
         <section class="caos-visual">
@@ -177,7 +195,7 @@
                 <img src="../imagenes/fnet.png" alt="4">
             </div>
         </section>
-        
+
         <section class="caos-visual">
             <h3>Katya</h3>
             <div class="gallery">
@@ -187,7 +205,7 @@
                 <img src="../imagenes/Sequence 01.gif" alt="4">
             </div>
         </section>
-    
+
         <section class="caos-visual">
             <h3>Slavic Core</h3>
             <div class="gallery">
@@ -209,7 +227,7 @@
             <h3>¿Quieres colaborar? 📢</h3>
             <a href="https://www.instagram.com/fentbulgaria.obj/" class="boton">Contacto</a>
         </section>
-    </main>    
+    </main>
 
     <footer>
         <p>&copy; 2004 - FentanylBulgaria</p>
@@ -218,22 +236,23 @@
     <audio id="madnessSound" src="../audio/scream.mp3"></audio>
     <audio id="mazikSound" src="../audio/scream.mp3"></audio>
 
+    <script>
+        function playSoundAndRedirect() {
+            var audio = document.getElementById("madnessSound");
+            audio.play();
+            setTimeout(function() {
+                window.location.href = "madness.html";
+            }, 1500);
+        }
 
-<script>
-  function playSoundAndRedirect() {
-        var audio = document.getElementById("madnessSound");
-        audio.play();
-        setTimeout(function() {
-            window.location.href = "madness.html";
-        }, 1500); 
-    }
-    function SoundAndRedirect() {
-        var audio = document.getElementById("mazikSound");
-        audio.play();
-        setTimeout(function() {
-            window.location.href = "https://open.spotify.com/user/312i6bqpxgzjpjjlheetnvyfmbbe";
-        }, 1500); 
-    }
-</script>
+        function SoundAndRedirect() {
+            var audio = document.getElementById("mazikSound");
+            audio.play();
+            setTimeout(function() {
+                window.location.href = "https://open.spotify.com/user/312i6bqpxgzjpjjlheetnvyfmbbe";
+            }, 1500);
+        }
+    </script>
 </body>
+
 </html>
