@@ -4,163 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FentanylCore</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="..//favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="..//favicon/favicon-32x32.png">
-    <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="..//favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="..//favicon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="..//favicon/android-chrome-512x512.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: #969F7C;
-            color: white;
-            text-align: center;
-        }
-
-        header,
-        nav,
-        main,
-        footer {
-            border: 3px solid black;
-        }
-
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .header-title {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-title img {
-            max-width: 80px;
-            height: auto;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            color: rgb(255, 0, 0);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        nav {
-            background: #969F7C;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            background: #444;
-            transition: 0.3s;
-            font-size: 1rem;
-        }
-
-        nav a:hover {
-            background: #666;
-        }
-
-        main {
-            padding: 20px;
-            min-height: 60vh;
-        }
-
-        footer {
-            background: #222;
-            padding: 15px;
-            margin-top: 20px;
-        }
-
-        @font-face {
-            font-family: 'mario';
-            src: url('../fuentes/SuperMario256.ttf') format('truetype');
-        }
-
-        * {
-            font-family: 'mario', sans-serif;
-        }
-
-        .gallery img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            margin: 10px;
-            border: 3px solid black;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .boton {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: red;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .boton:hover {
-            background: darkred;
-        }
-
-        .sobre-mi {
-            background-color: #444;
-            padding: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .sobre-mi h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .sobre-mi p {
-            font-size: 1rem;
-            color: #ccc;
-            max-width: 400px;
-        }
-
-        .sobre-mi img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            border: 3px solid black;
-        }
-    </style>
+    <title>OpiumBulgaria</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../favicon/android-chrome-512x512.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -174,85 +25,85 @@
     </header>
 
     <nav>
-        <a href="home.html">Casita</a>
+        <a href="./home.html">Principal</a>
         <a href="#" onclick="SoundAndRedirect()">Spotify</a>
         <a href="#" onclick="playSoundAndRedirect()">Animaciones</a>
-        <a href="secret.html">Secretin</a>
         <a href="https://sketchfab.com/fentanylbulgaria">Sketchfab</a>
     </nav>
 
     <main>
-        <section class="sobre-mi">
-            <p>Me llamo Dani y empecé usando Blender en un tren Bulgaria-Turquía. Tenía mucho tiempo libre y un portátil, así que aquí estoy compartiendo un poco lo que hago. No sé bien lo que hago porque hago un poco de todo con lo poco que sé de este programa. Tengo muchos videos raros creados en episodios depresivos de mi trastorno bipolar, cosa que me afecta mucho a mi vida y ha sido un poco lo que me ha hecho sobrevivir en estos meses que son los peores de mi vida. Espero que a alguien de este mundo le interese lo que hago, porque es lo único que tengo para ofrecer.</p>
-            <img src="../imagenes/gamba.gif" alt="Render más reciente">
-        </section>
+        <button class="collapsible">Sobre Mí <span class="arrow"></span></button>
+        <div class="content">
+            <div class="sobre-mi">
+                <p>Me llamo Dani y empecé usando Blender en un tren Bulgaria-Turquía. Tenía mucho tiempo libre y un portátil, así que aquí estoy compartiendo un poco lo que hago. No sé bien lo que hago porque hago un poco de todo con lo poco que sé de este programa. Tengo muchos videos raros creados en episodios depresivos de mi trastorno bipolar, cosa que me afecta mucho a mi vida y ha sido un poco lo que me ha hecho sobrevivir en estos meses que son los peores de mi vida. Espero que a alguien de este mundo le interese lo que hago, porque es lo único que tengo para ofrecer.</p>
+                <img src="../imagenes/gamba.gif" alt="Render más reciente">
+            </div>
+        </div>
 
-        <section class="caos-visual">
-            <h3>Naturecore</h3>
+        <button class="collapsible">Naturecore <span class="arrow"></span></button>
+        <div class="content">
             <div class="gallery">
                 <img src="../imagenes/12312312312.png" alt="5">
                 <img src="../imagenes/133123123132.png" alt="6">
                 <img src="../imagenes/fnet.png" alt="4">
             </div>
-        </section>
+        </div>
 
-        <section class="caos-visual">
-            <h3>Katya</h3>
+        <button class="collapsible">Katya <span class="arrow"></span></button>
+        <div class="content">
             <div class="gallery">
                 <img src="../imagenes/1asdias.png" alt="1">
                 <img src="../imagenes/2asdasd.png" alt="2">
                 <img src="../imagenes/3adsadas.png" alt="3">
                 <img src="../imagenes/Sequence 01.gif" alt="4">
+                <img src="../imagenes/sword.png" alt="4">
             </div>
-        </section>
+        </div>
 
-        <section class="caos-visual">
-            <h3>Slavic Core</h3>
+        <button class="collapsible">Slavic Core <span class="arrow"></span></button>
+        <div class="content">
             <div class="gallery">
                 <img src="../imagenes/ghfhfghfgh.png" alt="5">
                 <img src="../imagenes/fghfg.png" alt="6">
+                <img src="../imagenes/cigarrette.png" alt="4">
             </div>
-        </section>
+        </div>
 
-        <section class="caos-visual">
-            <h3>Brutalism (Abandoned)</h3>
+        <button class="collapsible">Brutalism (Abandoned) <span class="arrow"></span></button>
+        <div class="content">
             <div class="gallery">
                 <img src="../imagenes/1.png" alt="1">
                 <img src="../imagenes/2.png" alt="2">
                 <img src="../imagenes/3.png" alt="3">
             </div>
+        </div>
+
+        <section class="dev-blog">
+            <h2>Dev Blog</h2>
+            <div class="dev-blog-entry">
+                <h3>16/FEB/25</h3>
+                <p>Soy pobre</p>
+            <div class="dev-blog-entry">
+                <h3>16/FEB/25</h3>
+                <p>Tengo un plan de comprar un xbox kinect para hacer animaciones...</p>
+                
         </section>
 
         <section class="contacto">
-            <h3>¿Quieres colaborar? 📢</h3>
+            <h3>¿Quieres colaborar? </h3>
             <a href="https://www.instagram.com/fentbulgaria.obj/" class="boton">Contacto</a>
         </section>
     </main>
+
+    <audio id="madnessSound" src="../audio/scream.mp3"></audio>
+    <audio id="mazikSound" src="../audio/scream.mp3"></audio>
+
+    <script src="script.js"></script>
 
     <footer>
         <p>&copy; 2004 - FentanylBulgaria</p>
     </footer>
 
-    <audio id="madnessSound" src="../audio/scream.mp3"></audio>
-    <audio id="mazikSound" src="../audio/scream.mp3"></audio>
-
-    <script>
-        function playSoundAndRedirect() {
-            var audio = document.getElementById("madnessSound");
-            audio.play();
-            setTimeout(function() {
-                window.location.href = "madness.html";
-            }, 1500);
-        }
-
-        function SoundAndRedirect() {
-            var audio = document.getElementById("mazikSound");
-            audio.play();
-            setTimeout(function() {
-                window.location.href = "https://open.spotify.com/user/312i6bqpxgzjpjjlheetnvyfmbbe";
-            }, 1500);
-        }
-    </script>
 </body>
 
 </html>
