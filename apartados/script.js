@@ -25,3 +25,11 @@ function SoundAndRedirect() {
         window.location.href = "https://open.spotify.com/user/312i6bqpxgzjpjjlheetnvyfmbbe";
     }, 1500);
 }
+
+function NSoundAndRedirect() {
+    var audio = document.getElementById("N");
+    audio.play();
+    setTimeout(function () {
+        window.location.href = "sects/kinect360.html";
+    }, 1500);
+}

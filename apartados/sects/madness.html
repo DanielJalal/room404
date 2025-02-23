@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Road to Madness</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="..//favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="..//favicon/favicon-32x32.png">
-    <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="..//favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="..//favicon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="..//favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../favicon/android-chrome-512x512.png">
 
     <style>
+        @font-face {
+            font-family: 'mario';
+            src: url('../../fuentes/SuperMario256.ttf') format('truetype');
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -22,8 +27,11 @@
         body {
             background-color: #969F7C;
             color: white;
-            font-family: 'mario', sans-serif;
             text-align: center;
+        }
+
+        h1, h3, .boton {
+            font-family: 'mario', sans-serif;
         }
 
         h3 {
@@ -73,10 +81,6 @@
         .boton:hover {
             background: #d00000;
         }
-        @font-face {
-            font-family: 'mario';
-            src: url('/fuentes/SuperMario256.ttf') format('truetype');
-        }
 
         @media (max-width: 768px) {
             h3 {
@@ -96,13 +100,11 @@
     </style>
 </head>
 <body>
-
     <header>
         <h1>Animaciones</h1>
     </header>
 
     <section class="road-to-madness">
-
         <div class="video-gallery">
             <div class="video-item">
                 <video controls>
@@ -110,18 +112,20 @@
                     Tu navegador no soporta el formato de video.
                 </video>
             </div>
-
-            <div class="video-gallery">
-                <div class="video-item">
-                    <video controls>
-                        <source src="video/PopipoPopipi.mp4" type="video/mp4">
-                        Tu navegador no soporta el formato de video.
-                    </video>
-                </div>
-    
-
+            <div class="video-item">
+                <video controls>
+                    <source src="video/PopipoPopipi.mp4" type="video/mp4">
+                    Tu navegador no soporta el formato de video.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="video/pitiyadormir.mp4" type="video/mp4">
+                    Tu navegador no soporta el formato de video.
+                </video>
+            </div>
+        </div>
     </section>
     <a href="../home.html" class="boton">Volver al Inicio</a>
-
 </body>
 </html>

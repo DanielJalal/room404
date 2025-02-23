@@ -185,26 +185,3 @@ footer {
 .active:after {
     content: "\2796"; 
 }
-
-.dev-blog-entry {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: #555; 
-}
-
-.dev-blog-entry h3 {
-    color: white;
-    margin-bottom: 5px;
-}
-
-.dev-blog-entry p {
-    color: #ddd;
-}
-        .dev-blog-entry img {
-    max-width: 100%; 
-    height: auto;
-    display: block; 
-    margin: 10px auto; 
-    border: 3px solid black;
-}
