@@ -1,11 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var coll = document.getElementsByClassName("collapsible");
+    const collapsibles = document.querySelectorAll(".collapsible");
     
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
+    collapsibles.forEach(button => {
+        button.addEventListener("click", function () {
             this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            content.style.display = content.style.display === "block" ? "none" : "block";
+            let content = this.nextElementSibling;
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                loadImages(content);
+            }
+        });
+    });
+
+    function loadImages(content) {
+        const images = content.querySelectorAll("img[data-src]");
+        images.forEach(img => {
+            if (!img.src) {
+                img.src = img.getAttribute("data-src");
+                img.removeAttribute("data-src");
+            }
         });
     }
 });
