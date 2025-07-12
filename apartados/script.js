@@ -48,7 +48,7 @@ function NSoundAndRedirect() {
     if (audio) {
         audio.play().catch(error => console.error("Error playing sound:", error));
         setTimeout(function () {
-            window.location.href = "sects/kinect360.html";
+            window.location.href = "sects/nadezhda.html";
         }, 1500);
     }
 }
