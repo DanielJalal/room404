@@ -1,124 +1,303 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpiumBulgaria</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpiumBulgaria — Комната 404</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --panel:#121212;
+      --accent:#9b1c1c;
+      --muted:#7a7f6a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      background:var(--bg);
+      color:#e0e0e0;
+      font-family:Georgia, serif;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+      text-shadow:0 0 4px rgba(155,28,28,0.5);
+    }
+
+    #noise-canvas {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:0;
+      pointer-events:none;
+      opacity:0.1;
+    }
+
+    header{z-index:2;position:relative;padding:20px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
+    header img{max-width:70px;}
+    header h1{color:var(--accent);font-size:2rem;text-shadow:0 0 12px rgba(155,28,28,0.8)}
+    .glitch{position:relative}
+    .glitch::before,.glitch::after{
+      content:attr(data-text);position:absolute;left:0;top:0;
+      opacity:.7;clip:rect(0,900px,0,0);
+    }
+    .glitch::before{color:#ff2a2a;animation:glitch 2s infinite linear alternate-reverse}
+    .glitch::after{color:#9ad1ff;animation:glitch 3s infinite linear alternate}
+    @keyframes glitch{
+      0%{clip:rect(0,9999px,0,0)}
+      10%{clip:rect(10px,9999px,40px,0)}
+      20%{clip:rect(85px,9999px,140px,0)}
+      30%{clip:rect(20px,9999px,65px,0)}
+      40%{clip:rect(60px,9999px,90px,0)}
+      50%{clip:rect(10px,9999px,40px,0)}
+      60%{clip:rect(70px,9999px,100px,0)}
+      70%{clip:rect(40px,9999px,80px,0)}
+      80%{clip:rect(50px,9999px,90px,0)}
+      90%{clip:rect(80px,9999px,120px,0)}
+      100%{clip:rect(0,9999px,0,0)}
+    }
+
+    nav{z-index:2;position:relative;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px}
+    nav a{padding:8px 14px;background:var(--panel);color:#fff;text-decoration:none;border:1px solid #333;transition:.2s}
+    nav a:hover{background:#300000;color:#ff6666}
+
+    .hero{z-index:2;position:relative;max-width:900px;margin:20px auto;padding:20px;background:var(--panel);border:1px solid #333;border-radius:8px;text-align:center;box-shadow:0 0 15px rgba(155,28,28,0.6)}
+    .hero h2{color:var(--accent);margin-bottom:10px}
+    .countdown{display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+    .pill{padding:10px 14px;background:#111;border:1px solid #333;border-radius:6px;min-width:70px}
+
+    main{z-index:2;position:relative;max-width:1000px;margin:20px auto;padding:0 10px}
+
+    .collapsible{width:100%;padding:14px;text-align:left;background:var(--panel);border:1px solid #333;margin-top:12px;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .collapsible:hover{background:#1c0000}
+    .collapsible .arrow{transition:.2s}
+    .collapsible.active .arrow{transform:rotate(180deg)}
+    .content{display:none;padding:12px;background:#0b0b0b;border:1px solid #333;margin-bottom:12px}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;justify-items:center}
+    .gallery img{max-width:100%;border:2px solid #333;cursor:zoom-in;transition:transform .2s}
+    .gallery img:hover{transform:scale(1.05)}
+
+    .sobre-mi{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .sobre-mi img{max-width:200px;border:2px solid #333;cursor:zoom-in}
+
+    .boton{display:inline-block;padding:10px 20px;background:var(--accent);color:#fff;text-decoration:none;margin-top:10px}
+    .boton:hover{background:#5a0e0e}
+
+    footer{z-index:2;position:relative;text-align:center;color:#555;padding:20px;margin-top:30px}
+
+    #lightbox{
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.95);
+      display:none;align-items:center;justify-content:center;
+      z-index:9999;
+    }
+    #lightbox img{
+      max-width:90%;max-height:90%;
+      box-shadow:0 0 25px rgba(155,28,28,0.8);
+      border:3px solid #9b1c1c;
+    }
+    #lightbox:target{display:flex}
+
+    @media(max-width:600px){
+      header h1{font-size:1.4rem}
+      .hero h2{font-size:1.2rem}
+    }
+  </style>
 </head>
-
 <body>
+  <canvas id="noise-canvas"></canvas>
 
-    <header>
-        <div class="header-title">
-            <img src="../imagenes/YOP.gif" alt="GIF Izquierda">
-            <h1>Room 404</h1>
-            <img src="../imagenes/a857670557c3cdf3e7a05f7418d2310f.gif" alt="GIF Derecha">
-        </div>
-    </header>
+  <header>
+    <img src="../imagenes/YOP.gif" alt="GIF слева">
+    <h1 class="glitch" data-text="Комната 404">Комната 404</h1>
+    <img src="../imagenes/a857670557c3cdf3e7a05f7418d2310f.gif" alt="GIF справа">
+  </header>
 
-    <nav>
-        <a href="#" onclick="SoundAndRedirect()">Spotify</a>
-        <a href="#" onclick="NSoundAndRedirect()">Nadezhda</a>
-        <a href="#" onclick="playSoundAndRedirect()">Animaciones</a>
-        <a href="https://sketchfab.com/fentanylbulgaria">Sketchfab</a>
-    </nav>
+  <nav>
+    <a href="#" onclick="SoundAndRedirect()">Спотифай</a>
+    <a href="#" onclick="NSoundAndRedirect()">Надежда</a>
+    <a href="#" onclick="playSoundAndRedirect()">Анимации</a>
+    <a href="https://sketchfab.com/fentanylbulgaria">Скетчфаб</a>
+  </nav>
 
-    <main>
-        <button class="collapsible">Sobre Mí <span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="sobre-mi">
-                <p>Estoy loco y me la pelais todos eso es lo que teneis que saber</p>
-                <img data-src="../imagenes/gamba.gif" alt="Render más reciente">
-            </div>
-        </div>
+  <section class="hero">
+    <h2>Умираю</h2>
+    <div class="countdown">
+      <div class="pill" id="d">00<br><small>Дни</small></div>
+      <div class="pill" id="h">00<br><small>Часы</small></div>
+      <div class="pill" id="m">00<br><small>Мин</small></div>
+      <div class="pill" id="s">00<br><small>Сек</small></div>
+    </div>
+  </section>
 
-<button class="collapsible">IDK <span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="gallery">
-                <img data-src="../imagenes/adasd.png" alt="5">
-                                <img data-src="../imagenes/das.png" alt="5">
-                                <img data-src="../imagenes/poyaaa.png.png" alt="5">
-                                <img data-src="../imagenes/poya2.png" alt="5">
-            </div>
-        </div>
+  <main>
+    <button class="collapsible">Обо мне <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="sobre-mi">
+        <p>Я безумец, вот что вам стоит знать</p>
+        <img data-src="../imagenes/gamba.gif" alt="Последний рендер">
+      </div>
+    </div>
 
-   <button class="collapsible">Naturecore <span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="gallery">
-                <img data-src="../imagenes/12312312312.png" alt="5">
-                <img data-src="../imagenes/133123123132.png" alt="6">
-                <img data-src="../imagenes/fnet.png" alt="4">
-                <img data-src="../imagenes/orca.png" alt="4">
-                
-            </div>
-        </div>
+    <button class="collapsible">Не знаю <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="gallery">
+        <img data-src="../imagenes/adasd.png" alt="1">
+        <img data-src="../imagenes/das.png" alt="2">
+        <img data-src="../imagenes/poyaaa.png" alt="3">
+        <img data-src="../imagenes/poya2.png" alt="4">
+      </div>
+    </div>
 
-        <button class="collapsible">Knights <span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="gallery">
-                <img data-src="../imagenes/Gk--W6cXMAAaA36.jfif" alt="5">
-                <img data-src="../imagenes/Gk6gvZhWQAAVw3f.jfif" alt="5">
-                <img data-src="../imagenes/3123.png" alt="5">
-                <img data-src="../imagenes/rakija.png" alt="5">
+    <button class="collapsible">Природный ядро <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="gallery">
+        <img data-src="../imagenes/12312312312.png" alt="1">
+        <img data-src="../imagenes/133123123132.png" alt="2">
+        <img data-src="../imagenes/fnet.png" alt="3">
+        <img data-src="../imagenes/orca.png" alt="4">
+      </div>
+    </div>
 
-            </div>
-        </div>
+    <button class="collapsible">Рыцари <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="gallery">
+        <img data-src="../imagenes/Gk--W6cXMAAaA36.jfif" alt="1">
+        <img data-src="../imagenes/Gk6gvZhWQAAVw3f.jfif" alt="2">
+        <img data-src="../imagenes/3123.png" alt="3">
+        <img data-src="../imagenes/rakija.png" alt="4">
+      </div>
+    </div>
 
-        <button class="collapsible">Katya v1<span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="gallery">
-                <img data-src="../imagenes/1asdias.png" alt="1">
-                <img data-src="../imagenes/2asdasd.png" alt="2">
-                <img data-src="../imagenes/3adsadas.png" alt="3">
-                <img data-src="../imagenes/Sequence 01.gif" alt="4">
-                <img data-src="../imagenes/sword.png" alt="4">
-            </div>
-        </div>
+    <button class="collapsible">Катя <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="gallery">
+        <img data-src="../imagenes/1asdias.png" alt="1">
+        <img data-src="../imagenes/2asdasd.png" alt="2">
+        <img data-src="../imagenes/3adsadas.png" alt="3">
+        <img data-src="../imagenes/Sequence 01.gif" alt="4">
+        <img data-src="../imagenes/sword.png" alt="5">
+      </div>
+    </div>
 
-        <button class="collapsible">Slavic Core <span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="gallery">
-                <img data-src="../imagenes/ghfhfghfgh.png" alt="5">
-                <img data-src="../imagenes/fghfg.png" alt="6">
-                <img data-src="../imagenes/cigarrette.png" alt="4">
-            </div>
-        </div>
+    <button class="collapsible">Славянский ядро <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="gallery">
+        <img data-src="../imagenes/ghfhfghfgh.png" alt="1">
+        <img data-src="../imagenes/fghfg.png" alt="2">
+        <img data-src="../imagenes/cigarrette.png" alt="3">
+      </div>
+    </div>
 
-        <button class="collapsible">Brutalism(very old)<span class="arrow"></span></button>
-        <div class="content" style="display: none;">
-            <div class="gallery">
-                <img data-src="../imagenes/1.png" alt="1">
-                <img data-src="../imagenes/2.png" alt="2">
-                <img data-src="../imagenes/3.png" alt="3">
-                                <img data-src="../imagenes/hytjkyk.png" alt="3">
-                <img data-src="../imagenes/14124142.png" alt="3">
-                                <img data-src="../imagenes/14124142.png" alt="3">
+    <button class="collapsible">Брутализм (очень старое) <span class="arrow">▼</span></button>
+    <div class="content">
+      <div class="gallery">
+        <img data-src="../imagenes/1.png" alt="1">
+        <img data-src="../imagenes/2.png" alt="2">
+        <img data-src="../imagenes/3.png" alt="3">
+        <img data-src="../imagenes/hytjkyk.png" alt="4">
+        <img data-src="../imagenes/14124142.png" alt="5">
+      </div>
+    </div>
 
+    <section class="contacto">
+      <h3>Хотите сотрудничать?</h3>
+      <a href="https://www.instagram.com/osamabinbulgaria/" class="boton">Связаться</a>
+    </section>
+  </main>
 
-            </div>
-        </div>
+  <footer>
+    <p>&copy; 2004 - ФентанилБолгария</p>
+  </footer>
 
-        <section class="contacto">
-            <h3>¿Quieres colaborar?</h3>
-            <a href="https://www.instagram.com/osamabinbulgaria/" class="boton">Contacto</a>
-        </section>
-    </main>
+  <div id="lightbox"><img src=""></div>
 
-    <audio id="madnessSound" src="../audio/scream.mp3"></audio>
-    <audio id="mazikSound" src="../audio/scream.mp3"></audio>
-    <audio id="N" src="../audio/scream.mp3"></audio>
+  <audio id="madnessSound" src="../audio/scream.mp3"></audio>
+  <audio id="mazikSound" src="../audio/scream.mp3"></audio>
+  <audio id="N" src="../audio/scream.mp3"></audio>
 
-    <script src="script.js"></script>
+  <script>
+    const noiseCanvas = document.getElementById('noise-canvas');
+    const ctx = noiseCanvas.getContext('2d');
+    function resizeCanvas() {
+      noiseCanvas.width = window.innerWidth;
+      noiseCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    function generateNoise() {
+      const imageData = ctx.createImageData(noiseCanvas.width, noiseCanvas.height);
+      const buffer = new Uint32Array(imageData.data.buffer);
+      for (let i = 0; i < buffer.length; i++) {
+        const val = Math.random() * 255 | 0;
+        buffer[i] = (255 << 24) | (val << 16) | (val << 8) | val;
+      }
+      ctx.putImageData(imageData, 0, 0);
+      requestAnimationFrame(generateNoise);
+    }
+    generateNoise();
 
-    <footer>
-        <p>&copy; 2004 - FentanylBulgaria</p>
-    </footer>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".collapsible");
+      buttons.forEach(button => {
+        button.addEventListener("click", function () {
+          this.classList.toggle("active");
+          let content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+            const images = content.querySelectorAll("img[data-src]");
+            images.forEach(img => {
+              img.src = img.getAttribute("data-src");
+              img.removeAttribute("data-src");
+            });
+          }
+        });
+      });
 
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = lightbox.querySelector("img");
+      document.querySelectorAll("img").forEach(img=>{
+        img.addEventListener("click",()=>{
+          if(img.src){
+            lightbox.style.display="flex";
+            lightboxImg.src=img.src;
+          }
+        });
+      });
+      lightbox.addEventListener("click",()=>{lightbox.style.display="none";});
+    });
+
+    function playSoundAndRedirect() {
+      var audio = document.getElementById("madnessSound");
+      if (audio) {
+        audio.play().catch(e=>console.error(e));
+        setTimeout(()=>window.location.href="sects/madness.html",1500);
+      }
+    }
+    function SoundAndRedirect() {
+      var audio = document.getElementById("mazikSound");
+      if(audio){audio.play().catch(e=>console.error(e));setTimeout(()=>window.location.href="https://open.spotify.com/user/312i6bqpxgzjpjjlheetnvyfmbbe",1500);}
+    }
+    function NSoundAndRedirect() {
+      var audio = document.getElementById("N");
+      if(audio){audio.play().catch(e=>console.error(e));setTimeout(()=>window.location.href="sects/nadezhda.html",1500);}
+    }
+
+const target = new Date();
+target.setDate(target.getDate() + 14);
+    function updateCountdown(){
+      const now = new Date(); const diff = Math.max(0, target - now);
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff/(1000*60*60))%24);
+      const m = Math.floor((diff/(1000*60))%60);
+      const s = Math.floor((diff/1000)%60);
+      document.getElementById('d').innerHTML = String(d).padStart(2,'0') + '<br><small>Дни</small>';
+      document.getElementById('h').innerHTML = String(h).padStart(2,'0') + '<br><small>Часы</small>';
+      document.getElementById('m').innerHTML = String(m).padStart(2,'0') + '<br><small>Мин</small>';
+      document.getElementById('s').innerHTML = String(s).padStart(2,'0') + '<br><small>Сек</small>';
+    }
+    setInterval(updateCountdown,1000); updateCountdown();
+  </script>
 </body>
-
 </html>
